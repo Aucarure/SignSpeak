@@ -1,0 +1,48 @@
+# ---- GENERAL ----
+*.log
+*.zip
+*.rar
+*.7z
+.DS_Store
+
+# ---- IDEA / VSCode ----
+.idea/
+.vscode/
+.history/
+
+# ---- JAVA / SPRING BOOT ----
+target/
+*.class
+*.jar
+*.war
+*.iml
+*.project
+*.classpath
+.mvn/
+
+# ---- NODE / REACT ----
+node_modules/
+dist/
+.env
+npm-debug.log
+
+# ---- ANDROID STUDIO ----
+.gradle/
+build/
+captures/
+local.properties
+*.iml
+
+# ---- MOBILE ----
+app/build/
+android/app/build/
+android/.gradle
+
+# ---- PYTHON (por si acaso) ----
+__pycache__/
+
+# ---- Otros ----
+Usuario/frontend/node_modules/
+Usuario/mobile/.gradle/
+Usuario/mobile/build/
+Usuario/backend/target/
