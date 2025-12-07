@@ -1,0 +1,89 @@
+.page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.content-card {
+  background: white;
+  border-radius: 16px;
+  padding: 48px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.empty-state {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.empty-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+}
+
+.empty-state h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 12px 0;
+}
+
+.empty-state p {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0;
+}
+
+
+/* Modo Oscuro */
+body.dark-mode {
+  background-color: #1f2937;
+  color: #f9fafb;
+}
+
+body.dark-mode .page-container,
+body.dark-mode .section {
+  background-color: #374151;
+  color: #f9fafb;
+}
+
+/* Alto Contraste */
+body.high-contrast {
+  filter: contrast(1.2);
+}
+
+body.high-contrast * {
+  border-color: #000 !important;
+}
+
+/* Movimiento Reducido */
+body.reduced-motion * {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Slider personalizado */
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #6366f1;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #6366f1;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Toggle Switch Animation */
+.toggle input:checked + span::before {
+  transform: translateX(22px);
+}
