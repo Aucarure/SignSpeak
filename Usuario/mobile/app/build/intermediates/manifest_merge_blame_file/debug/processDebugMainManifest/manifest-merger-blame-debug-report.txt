@@ -1,0 +1,170 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.signspeak"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:5:5-67
+11-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:6:5-79
+12-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:6:22-76
+13
+14    <permission
+14-->[androidx.core:core:1.12.0] C:\Users\Vic\.gradle\caches\8.9\transforms\fdd5c97806b35b6b942c5966f8bcbcaf\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+15        android:name="com.signspeak.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+15-->[androidx.core:core:1.12.0] C:\Users\Vic\.gradle\caches\8.9\transforms\fdd5c97806b35b6b942c5966f8bcbcaf\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+16        android:protectionLevel="signature" />
+16-->[androidx.core:core:1.12.0] C:\Users\Vic\.gradle\caches\8.9\transforms\fdd5c97806b35b6b942c5966f8bcbcaf\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+17
+18    <uses-permission android:name="com.signspeak.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- 1. Aquí registramos la Application global -->
+18-->[androidx.core:core:1.12.0] C:\Users\Vic\.gradle\caches\8.9\transforms\fdd5c97806b35b6b942c5966f8bcbcaf\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+18-->[androidx.core:core:1.12.0] C:\Users\Vic\.gradle\caches\8.9\transforms\fdd5c97806b35b6b942c5966f8bcbcaf\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+19    <application
+19-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:9:5-36:19
+20        android:name="com.signspeak.SignSpeakApplication"
+20-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:10:9-45
+21        android:allowBackup="true"
+21-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:12:9-35
+22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+22-->[androidx.core:core:1.12.0] C:\Users\Vic\.gradle\caches\8.9\transforms\fdd5c97806b35b6b942c5966f8bcbcaf\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
+23        android:dataExtractionRules="@xml/data_extraction_rules"
+23-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:13:9-65
+24        android:debuggable="true"
+25        android:extractNativeLibs="false"
+26        android:fullBackupContent="@xml/backup_rules"
+26-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:14:9-54
+27        android:icon="@mipmap/ic_launcher"
+27-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:15:9-43
+28        android:label="@string/app_name"
+28-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:16:9-41
+29        android:networkSecurityConfig="@xml/network_security_config"
+29-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:20:9-69
+30        android:roundIcon="@mipmap/ic_launcher_round"
+30-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:17:9-54
+31        android:supportsRtl="true"
+31-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:18:9-35
+32        android:testOnly="true"
+33        android:theme="@style/Theme.SignSpeak"
+33-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:19:9-47
+34        android:usesCleartextTraffic="true" >
+34-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:11:9-44
+35
+36        <!-- 2. Aquí registramos la Activity (Pantalla) Principal -->
+37        <!-- Asegúrate de tener el archivo MainActivity.kt creado -->
+38        <activity
+38-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:25:9-34:20
+39            android:name="com.signspeak.MainActivity"
+39-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:26:13-41
+40            android:exported="true"
+40-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:27:13-36
+41            android:label="@string/app_name"
+41-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:28:13-45
+42            android:theme="@style/Theme.SignSpeak" >
+42-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:29:13-51
+43            <intent-filter>
+43-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:30:13-33:29
+44                <action android:name="android.intent.action.MAIN" />
+44-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:31:17-69
+44-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:31:25-66
+45
+46                <category android:name="android.intent.category.LAUNCHER" />
+46-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:32:17-77
+46-->C:\Users\Vic\Desktop\Proyecto_Integrador\2025-2-4c24-pi-pi_3c\Usuario\mobile\app\src\main\AndroidManifest.xml:32:27-74
+47            </intent-filter>
+48        </activity>
+49        <activity
+49-->[androidx.compose.ui:ui-tooling-android:1.5.4] C:\Users\Vic\.gradle\caches\8.9\transforms\3ae8b52eab1d1ff6a860301f990adc1f\transformed\jetified-ui-tooling-release\AndroidManifest.xml:23:9-25:39
+50            android:name="androidx.compose.ui.tooling.PreviewActivity"
+50-->[androidx.compose.ui:ui-tooling-android:1.5.4] C:\Users\Vic\.gradle\caches\8.9\transforms\3ae8b52eab1d1ff6a860301f990adc1f\transformed\jetified-ui-tooling-release\AndroidManifest.xml:24:13-71
+51            android:exported="true" />
+51-->[androidx.compose.ui:ui-tooling-android:1.5.4] C:\Users\Vic\.gradle\caches\8.9\transforms\3ae8b52eab1d1ff6a860301f990adc1f\transformed\jetified-ui-tooling-release\AndroidManifest.xml:25:13-36
+52        <activity
+52-->[androidx.compose.ui:ui-test-manifest:1.5.4] C:\Users\Vic\.gradle\caches\8.9\transforms\8314ed2b46eab8f89879208305a89552\transformed\jetified-ui-test-manifest-1.5.4\AndroidManifest.xml:23:9-25:39
+53            android:name="androidx.activity.ComponentActivity"
+53-->[androidx.compose.ui:ui-test-manifest:1.5.4] C:\Users\Vic\.gradle\caches\8.9\transforms\8314ed2b46eab8f89879208305a89552\transformed\jetified-ui-test-manifest-1.5.4\AndroidManifest.xml:24:13-63
+54            android:exported="true" />
+54-->[androidx.compose.ui:ui-test-manifest:1.5.4] C:\Users\Vic\.gradle\caches\8.9\transforms\8314ed2b46eab8f89879208305a89552\transformed\jetified-ui-test-manifest-1.5.4\AndroidManifest.xml:25:13-36
+55
+56        <provider
+56-->[androidx.emoji2:emoji2:1.4.0] C:\Users\Vic\.gradle\caches\8.9\transforms\e8916a0f6a11358f4c9a8bd9fcb66f89\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:24:9-32:20
+57            android:name="androidx.startup.InitializationProvider"
+57-->[androidx.emoji2:emoji2:1.4.0] C:\Users\Vic\.gradle\caches\8.9\transforms\e8916a0f6a11358f4c9a8bd9fcb66f89\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:25:13-67
+58            android:authorities="com.signspeak.androidx-startup"
+58-->[androidx.emoji2:emoji2:1.4.0] C:\Users\Vic\.gradle\caches\8.9\transforms\e8916a0f6a11358f4c9a8bd9fcb66f89\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:26:13-68
+59            android:exported="false" >
+59-->[androidx.emoji2:emoji2:1.4.0] C:\Users\Vic\.gradle\caches\8.9\transforms\e8916a0f6a11358f4c9a8bd9fcb66f89\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:27:13-37
+60            <meta-data
+60-->[androidx.emoji2:emoji2:1.4.0] C:\Users\Vic\.gradle\caches\8.9\transforms\e8916a0f6a11358f4c9a8bd9fcb66f89\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:29:13-31:52
+61                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+61-->[androidx.emoji2:emoji2:1.4.0] C:\Users\Vic\.gradle\caches\8.9\transforms\e8916a0f6a11358f4c9a8bd9fcb66f89\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:30:17-75
+62                android:value="androidx.startup" />
+62-->[androidx.emoji2:emoji2:1.4.0] C:\Users\Vic\.gradle\caches\8.9\transforms\e8916a0f6a11358f4c9a8bd9fcb66f89\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:31:17-49
+63            <meta-data
+63-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Vic\.gradle\caches\8.9\transforms\675bc87445bd748b9a3a11f471c4c776\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
+64                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+64-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Vic\.gradle\caches\8.9\transforms\675bc87445bd748b9a3a11f471c4c776\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
+65                android:value="androidx.startup" />
+65-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Vic\.gradle\caches\8.9\transforms\675bc87445bd748b9a3a11f471c4c776\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
+66            <meta-data
+66-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+67                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+67-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+68                android:value="androidx.startup" />
+68-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+69        </provider>
+70
+71        <service
+71-->[androidx.room:room-runtime:2.6.1] C:\Users\Vic\.gradle\caches\8.9\transforms\b1e9c2a2e8bc2213adbfd616856bbd06\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
+72            android:name="androidx.room.MultiInstanceInvalidationService"
+72-->[androidx.room:room-runtime:2.6.1] C:\Users\Vic\.gradle\caches\8.9\transforms\b1e9c2a2e8bc2213adbfd616856bbd06\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
+73            android:directBootAware="true"
+73-->[androidx.room:room-runtime:2.6.1] C:\Users\Vic\.gradle\caches\8.9\transforms\b1e9c2a2e8bc2213adbfd616856bbd06\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
+74            android:exported="false" />
+74-->[androidx.room:room-runtime:2.6.1] C:\Users\Vic\.gradle\caches\8.9\transforms\b1e9c2a2e8bc2213adbfd616856bbd06\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
+75
+76        <receiver
+76-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+77            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+77-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+78            android:directBootAware="false"
+78-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+79            android:enabled="true"
+79-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+80            android:exported="true"
+80-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+81            android:permission="android.permission.DUMP" >
+81-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+82            <intent-filter>
+82-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+83                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+83-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+83-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+84            </intent-filter>
+85            <intent-filter>
+85-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+86                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+86-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+86-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+87            </intent-filter>
+88            <intent-filter>
+88-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+89                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+89-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+89-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+90            </intent-filter>
+91            <intent-filter>
+91-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+92                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+92-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+92-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vic\.gradle\caches\8.9\transforms\116baeae9bc942336f06bd9c3d329540\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+93            </intent-filter>
+94        </receiver>
+95    </application>
+96
+97</manifest>

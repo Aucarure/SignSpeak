@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- Permite tráfico HTTP al localhost del emulador -->
+        <domain includeSubdomains="true">10.0.2.2</domain>
+        <domain includeSubdomains="true">localhost</domain>
+        <!-- Si pruebas en celular físico, agrega tu IP local aquí, ej: 192.168.1.50 -->
+    </domain-config>
+</network-security-config>
