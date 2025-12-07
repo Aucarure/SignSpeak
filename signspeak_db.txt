@@ -1,0 +1,297 @@
+-- ============================================
+-- SIGNSPEAK DATABASE - POSTGRESQL (VERSIÓN SIMPLIFICADA)
+-- ============================================
+
+-- Eliminar tablas si existen (para desarrollo)
+DROP TABLE IF EXISTS material_descargable CASCADE;
+DROP TABLE IF EXISTS errores_usuario CASCADE;
+DROP TABLE IF EXISTS historial_traducciones CASCADE;
+DROP TABLE IF EXISTS historial_detecciones CASCADE;
+DROP TABLE IF EXISTS mensajes_conversacion CASCADE;
+DROP TABLE IF EXISTS conversaciones CASCADE;
+DROP TABLE IF EXISTS diccionario_senas CASCADE;
+DROP TABLE IF EXISTS categorias_senas CASCADE;
+DROP TABLE IF EXISTS configuraciones_usuario CASCADE;
+DROP TABLE IF EXISTS usuarios CASCADE;
+
+-- ============================================
+-- MÓDULO DE USUARIOS
+-- ============================================
+
+-- Tabla de usuarios
+CREATE TABLE usuarios (
+    id_usuario SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(150) UNIQUE NOT NULL,
+    contraseña VARCHAR(255) NOT NULL,
+    tipo_usuario VARCHAR(20) CHECK (tipo_usuario IN ('oyente', 'sordo', 'mudo', 'sordomudo')) NOT NULL,
+    foto_perfil TEXT,
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ultimo_acceso TIMESTAMP,
+    activo BOOLEAN DEFAULT TRUE,
+    eliminado BOOLEAN DEFAULT FALSE,
+    fecha_eliminacion TIMESTAMP
+);
+
+-- Índices para búsquedas rápidas
+CREATE INDEX idx_usuarios_email ON usuarios(email);
+CREATE INDEX idx_usuarios_tipo ON usuarios(tipo_usuario);
+
+-- Tabla de configuraciones personalizadas
+CREATE TABLE configuraciones_usuario (
+    id_configuracion SERIAL PRIMARY KEY,
+    id_usuario INTEGER NOT NULL REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
+    tamaño_fuente VARCHAR(20) DEFAULT 'mediano' CHECK (tamaño_fuente IN ('pequeño', 'mediano', 'grande')),
+    tema VARCHAR(30) DEFAULT 'claro' CHECK (tema IN ('claro', 'oscuro', 'alto_contraste')),
+    velocidad_animaciones VARCHAR(20) DEFAULT 'normal' CHECK (velocidad_animaciones IN ('lenta', 'normal', 'rapida')),
+    notificaciones_habilitadas BOOLEAN DEFAULT TRUE,
+    sonido_habilitado BOOLEAN DEFAULT TRUE,
+    vibracion_habilitada BOOLEAN DEFAULT TRUE,
+    idioma VARCHAR(10) DEFAULT 'es',
+    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(id_usuario)
+);
+
+-- ============================================
+-- MÓDULO DE DICCIONARIO
+-- ============================================
+
+-- Tabla de categorías de señas
+CREATE TABLE categorias_señas (
+    id_categoria SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL UNIQUE,
+    descripcion TEXT,
+    icono VARCHAR(50),
+    orden INTEGER DEFAULT 0,
+    activo BOOLEAN DEFAULT TRUE,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabla de diccionario de señas
+CREATE TABLE diccionario_señas (
+    id_seña SERIAL PRIMARY KEY,
+    palabra VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    id_categoria INTEGER REFERENCES categorias_señas(id_categoria) ON DELETE SET NULL,
+    url_video TEXT,
+    url_imagen TEXT,
+    url_animacion TEXT,
+    duracion_video_segundos INTEGER,
+    dificultad VARCHAR(20) DEFAULT 'medio' CHECK (dificultad IN ('facil', 'medio', 'dificil')),
+    popularidad INTEGER DEFAULT 0,
+    veces_practicada INTEGER DEFAULT 0,
+    etiquetas TEXT[], -- Array de etiquetas para búsqueda
+    activo BOOLEAN DEFAULT TRUE,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Índices para búsquedas
+CREATE INDEX idx_diccionario_palabra ON diccionario_señas(palabra);
+CREATE INDEX idx_diccionario_categoria ON diccionario_señas(id_categoria);
+CREATE INDEX idx_diccionario_dificultad ON diccionario_señas(dificultad);
+
+-- ============================================
+-- MÓDULO DE CONVERSACIONES
+-- ============================================
+
+-- Tabla de conversaciones
+CREATE TABLE conversaciones (
+    id_conversacion SERIAL PRIMARY KEY,
+    id_usuario INTEGER NOT NULL REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
+    titulo VARCHAR(200),
+    fecha_inicio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_fin TIMESTAMP,
+    duracion_total_segundos INTEGER DEFAULT 0,
+    num_mensajes INTEGER DEFAULT 0,
+    guardada BOOLEAN DEFAULT FALSE,
+    eliminada BOOLEAN DEFAULT FALSE,
+    metadata JSONB -- Información adicional flexible
+);
+
+-- Índices
+CREATE INDEX idx_conversaciones_usuario ON conversaciones(id_usuario);
+CREATE INDEX idx_conversaciones_fecha ON conversaciones(fecha_inicio DESC);
+
+-- Tabla de mensajes de conversación
+CREATE TABLE mensajes_conversacion (
+    id_mensaje SERIAL PRIMARY KEY,
+    id_conversacion INTEGER NOT NULL REFERENCES conversaciones(id_conversacion) ON DELETE CASCADE,
+    tipo_mensaje VARCHAR(30) CHECK (tipo_mensaje IN ('seña_detectada', 'texto', 'voz', 'traduccion')) NOT NULL,
+    contenido_texto TEXT,
+    id_seña_detectada INTEGER REFERENCES diccionario_señas(id_seña) ON DELETE SET NULL,
+    confianza_deteccion DECIMAL(5,2), -- Porcentaje 0-100
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    es_correcto BOOLEAN DEFAULT TRUE,
+    metadata JSONB
+);
+
+-- Índices
+CREATE INDEX idx_mensajes_conversacion ON mensajes_conversacion(id_conversacion);
+CREATE INDEX idx_mensajes_timestamp ON mensajes_conversacion(timestamp);
+
+-- ============================================
+-- MÓDULO DE DETECCIÓN Y TRADUCCIÓN
+-- ============================================
+
+-- Tabla de historial de detecciones
+CREATE TABLE historial_detecciones (
+    id_deteccion SERIAL PRIMARY KEY,
+    id_usuario INTEGER NOT NULL REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
+    id_seña_detectada INTEGER REFERENCES diccionario_señas(id_seña) ON DELETE SET NULL,
+    confianza DECIMAL(5,2) NOT NULL, -- Porcentaje 0-100
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    contexto VARCHAR(50) CHECK (contexto IN ('ejercicio', 'conversacion', 'practica_libre', 'tutorial')) NOT NULL,
+    id_contexto INTEGER, -- ID del ejercicio, conversación, etc.
+    duracion_ms INTEGER, -- Tiempo que tomó la detección
+    metadata JSONB
+);
+
+-- Índices
+CREATE INDEX idx_detecciones_usuario ON historial_detecciones(id_usuario);
+CREATE INDEX idx_detecciones_seña ON historial_detecciones(id_seña_detectada);
+CREATE INDEX idx_detecciones_timestamp ON historial_detecciones(timestamp DESC);
+
+-- Tabla de historial de traducciones
+CREATE TABLE historial_traducciones (
+    id_traduccion SERIAL PRIMARY KEY,
+    id_usuario INTEGER NOT NULL REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
+    tipo_entrada VARCHAR(20) CHECK (tipo_entrada IN ('voz', 'texto')) NOT NULL,
+    texto_original TEXT NOT NULL,
+    texto_traducido TEXT,
+    señas_generadas JSONB, -- Array de {id_seña, orden, duracion}
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    duracion_segundos INTEGER,
+    idioma_origen VARCHAR(10) DEFAULT 'es',
+    exitoso BOOLEAN DEFAULT TRUE,
+    metadata JSONB
+);
+
+-- Índices
+CREATE INDEX idx_traducciones_usuario ON historial_traducciones(id_usuario);
+CREATE INDEX idx_traducciones_timestamp ON historial_traducciones(timestamp DESC);
+
+-- ============================================
+-- MÓDULO DE ERRORES
+-- ============================================
+
+-- Tabla de errores del usuario
+CREATE TABLE errores_usuario (
+    id_error SERIAL PRIMARY KEY,
+    id_usuario INTEGER NOT NULL REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
+    id_seña_esperada INTEGER NOT NULL REFERENCES diccionario_señas(id_seña) ON DELETE CASCADE,
+    id_seña_detectada INTEGER REFERENCES diccionario_señas(id_seña) ON DELETE SET NULL,
+    tipo_error VARCHAR(50) CHECK (tipo_error IN ('seña_incorrecta', 'no_detectada', 'gesto_incompleto', 'baja_confianza')),
+    descripcion_error TEXT,
+    confianza_deteccion DECIMAL(5,2),
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    retroalimentacion_mostrada BOOLEAN DEFAULT FALSE,
+    metadata JSONB
+);
+
+-- Índices
+CREATE INDEX idx_errores_usuario ON errores_usuario(id_usuario);
+CREATE INDEX idx_errores_seña_esperada ON errores_usuario(id_seña_esperada);
+
+-- ============================================
+-- MÓDULO DE MATERIALES DESCARGABLES
+-- ============================================
+
+-- Tabla de material descargable
+CREATE TABLE material_descargable (
+    id_material SERIAL PRIMARY KEY,
+    titulo VARCHAR(200) NOT NULL,
+    descripcion TEXT,
+    tipo VARCHAR(50) CHECK (tipo IN ('pdf', 'video', 'infografia', 'guia', 'audio', 'ebook')) NOT NULL,
+    url_descarga TEXT NOT NULL,
+    url_preview TEXT,
+    tamaño_mb DECIMAL(10,2),
+    id_categoria INTEGER REFERENCES categorias_señas(id_categoria) ON DELETE SET NULL,
+    nivel_requerido VARCHAR(20) CHECK (nivel_requerido IN ('novato', 'intermedio', 'avanzado')),
+    idioma VARCHAR(10) DEFAULT 'es',
+    autor VARCHAR(100),
+    num_descargas INTEGER DEFAULT 0,
+    calificacion_promedio DECIMAL(3,2), -- 0-5 estrellas
+    num_calificaciones INTEGER DEFAULT 0,
+    activo BOOLEAN DEFAULT TRUE,
+    destacado BOOLEAN DEFAULT FALSE,
+    fecha_publicacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    metadata JSONB
+);
+
+-- Índices
+CREATE INDEX idx_material_tipo ON material_descargable(tipo);
+CREATE INDEX idx_material_categoria ON material_descargable(id_categoria);
+CREATE INDEX idx_material_destacado ON material_descargable(destacado);
+
+-- ============================================
+-- TRIGGERS PARA ACTUALIZACIÓN AUTOMÁTICA
+-- ============================================
+
+-- Función para actualizar fecha de modificación
+CREATE OR REPLACE FUNCTION update_timestamp()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.fecha_actualizacion = CURRENT_TIMESTAMP;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Aplicar trigger a tablas relevantes
+CREATE TRIGGER trigger_update_configuraciones
+    BEFORE UPDATE ON configuraciones_usuario
+    FOR EACH ROW
+    EXECUTE FUNCTION update_timestamp();
+
+CREATE TRIGGER trigger_update_diccionario
+    BEFORE UPDATE ON diccionario_señas
+    FOR EACH ROW
+    EXECUTE FUNCTION update_timestamp();
+
+-- ============================================
+-- INSERTAR DATOS INICIALES (SEED DATA)
+-- ============================================
+
+-- Categorías de señas
+INSERT INTO categorias_señas (nombre, descripcion, icono, orden) VALUES
+('Saludos', 'Señas básicas de saludo y despedida', '👋', 1),
+('Emociones', 'Expresiones de sentimientos y emociones', '😊', 2),
+('Números', 'Números del 0 al 100', '🔢', 3),
+('Familia', 'Términos relacionados con familia', '👨‍👩‍👧', 4),
+('Acciones', 'Verbos y acciones comunes', '🏃', 5),
+('Lugares', 'Ubicaciones y lugares', '🏠', 6),
+('Alimentos', 'Comidas y bebidas', '🍕', 7),
+('Tiempo', 'Días, meses, horas', '⏰', 8);
+
+-- Señas básicas del sistema
+INSERT INTO diccionario_señas (palabra, descripcion, id_categoria, dificultad) VALUES
+('hola', 'Saludo básico', 1, 'facil'),
+('gracias', 'Expresión de agradecimiento', 1, 'facil'),
+('ayuda', 'Solicitud de asistencia', 5, 'medio'),
+('si', 'Afirmación', 2, 'facil'),
+('no', 'Negación', 2, 'facil'),
+('por_favor', 'Solicitud cortés', 1, 'medio');
+
+-- ============================================
+-- COMENTARIOS EN TABLAS
+-- ============================================
+
+COMMENT ON TABLE usuarios IS 'Usuarios registrados en la plataforma';
+COMMENT ON TABLE diccionario_señas IS 'Catálogo completo de señas con multimedia';
+COMMENT ON TABLE conversaciones IS 'Conversaciones guardadas por los usuarios';
+COMMENT ON TABLE historial_detecciones IS 'Registro de todas las detecciones realizadas';
+COMMENT ON TABLE historial_traducciones IS 'Registro de traducciones voz/texto a señas';
+COMMENT ON TABLE errores_usuario IS 'Registro de errores durante la práctica';
+COMMENT ON TABLE material_descargable IS 'Materiales educativos disponibles para descarga';
+
+-- ============================================
+-- FIN DEL SCRIPT
+-- ============================================
+
+-- Verificar que todo se creó correctamente
+SELECT 
+    'Tablas creadas exitosamente' as status,
+    COUNT(*) as num_tablas
+FROM information_schema.tables 
+WHERE table_schema = 'public' 
+AND table_type = 'BASE TABLE';
