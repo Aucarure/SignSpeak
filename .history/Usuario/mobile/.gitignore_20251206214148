@@ -1,0 +1,11 @@
+# Android / Gradle
+.gradle/
+.idea/
+build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Ignorar todo excepto app
+!app/

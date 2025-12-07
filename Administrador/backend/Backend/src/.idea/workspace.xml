@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2052dd8b-01dd-4822-a8ea-a7273baf2dd4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/com/backend/BackendApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/com/backend/ServletInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/frontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/frontend/eslint.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/frontend/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/frontend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/frontend/public/vite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/frontend/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/frontend/src/App.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/frontend/src/assets/react.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/frontend/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/frontend/src/main.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/frontend/vite.config.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="34wDixjLaTP7rvzdv4EF8nd6kOU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "feature/traductor-ai",
+    "last_opened_file_path": "C:/Users/Vic/Desktop/Proyecto_Integrador/2025-2-4c24-pi-pi_3c/Usuario/Backend/src",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.28774.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.28774.11" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2052dd8b-01dd-4822-a8ea-a7273baf2dd4" name="Changes" comment="" />
+      <created>1762115871253</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1762115871253</updated>
+      <workItem from="1762115872331" duration="26000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
