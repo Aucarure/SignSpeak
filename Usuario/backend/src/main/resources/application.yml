@@ -1,0 +1,37 @@
+server:
+  port: 8081  # Cambiar puerto
+
+spring:
+  application:
+    name: signspeak-backend
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/signspeak_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    time-zone: America/Lima
+
+logging:
+  level:
+    com.signspeak.backend: DEBUG
+    org.hibernate.SQL: DEBUG
+
+cors:
+  allowed-origins: http://localhost:3000,http://localhost:5173
