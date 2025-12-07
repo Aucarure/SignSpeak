@@ -1,0 +1,304 @@
+.page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.content-card {
+  background: white;
+  border-radius: 16px;
+  padding: 48px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.empty-state {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.empty-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+}
+
+.empty-state h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 12px 0;
+}
+
+.empty-state p {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* ===== CONFIGURACIÓN DE SETTINGS ===== */
+
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+}
+
+.settings-section {
+  padding: 1.5rem;
+}
+
+.settings-section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-info h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+.setting-info p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 26px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background-color: #4f46e5;
+}
+
+.toggle-switch input:checked + .toggle-slider:before {
+  transform: translateX(24px);
+}
+
+/* Radio Group */
+.radio-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.radio-option {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--card-bg);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.radio-option input {
+  display: none;
+}
+
+.radio-option:hover {
+  border-color: #4f46e5;
+  background: #f5f3ff;
+}
+
+.radio-option.active {
+  border-color: #4f46e5;
+  background: #4f46e5;
+  color: white;
+}
+
+.radio-option span {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Reset Button */
+.reset-button {
+  width: 100%;
+  padding: 0.875rem;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.reset-button:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(239, 68, 68, 0.3);
+}
+
+/* Preview Box */
+.preview-box {
+  padding: 1.5rem;
+  background: var(--preview-bg);
+  border: 2px dashed var(--border-color);
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.preview-box p {
+  margin: 0.5rem 0;
+  color: var(--text-primary);
+}
+
+/* ===== MODO OSCURO ===== */
+:root {
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --card-bg: white;
+  --border-color: #e5e7eb;
+  --preview-bg: #f9fafb;
+}
+
+body.dark-mode {
+  background: #111827;
+  color: #e5e7eb;
+}
+
+body.dark-mode .page-container {
+  background: #111827;
+}
+
+body.dark-mode .content-card {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+body.dark-mode .page-title,
+body.dark-mode .settings-section-title,
+body.dark-mode .setting-info h3 {
+  color: #f9fafb;
+}
+
+body.dark-mode .page-subtitle,
+body.dark-mode .setting-info p {
+  color: #9ca3af;
+}
+
+body.dark-mode .radio-option {
+  background: #374151;
+  border-color: #4b5563;
+  color: #e5e7eb;
+}
+
+body.dark-mode .radio-option:hover {
+  background: #4b5563;
+  border-color: #6366f1;
+}
+
+body.dark-mode .radio-option.active {
+  background: #4f46e5;
+  border-color: #4f46e5;
+  color: white;
+}
+
+body.dark-mode .preview-box {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+body.dark-mode .toggle-slider {
+  background-color: #4b5563;
+}
+
+/* ===== TAMAÑOS DE FUENTE ===== */
+html[data-font-size="small"] {
+  font-size: 14px;
+}
+
+html[data-font-size="medium"] {
+  font-size: 16px;
+}
+
+html[data-font-size="large"] {
+  font-size: 18px;
+}
+
+/* ===== CONTRASTE ===== */
+html[data-contrast="high"] .content-card {
+  border: 2px solid #000;
+}
+
+html[data-contrast="high"] .page-title {
+  color: #000;
+  font-weight: 700;
+}
+
+html[data-contrast="high"] body.dark-mode .page-title {
+  color: #fff;
+}
+
+html[data-contrast="high"] body.dark-mode .content-card {
+  border: 2px solid #fff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .setting-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .toggle-switch,
+  .radio-group {
+    align-self: flex-start;
+  }
+}

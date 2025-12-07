@@ -1,0 +1,434 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f9fafb;
+}
+
+button {
+  font-family: inherit;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+
+
+
+/* Modo oscuro global - CUBRE TODO */
+html.dark-mode,
+body.dark-mode {
+  background: #0f172a !important;
+  color: #e5e7eb !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.dark-mode #root {
+  background: #0f172a !important;
+  min-height: 100vh !important;
+  width: 100% !important;
+}
+
+body.dark-mode * {
+  box-sizing: border-box;
+}
+
+body.dark-mode * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* App Container */
+body.dark-mode .app-container {
+  background: #0f172a !important;
+}
+
+/* Sidebar completo */
+body.dark-mode .sidebar {
+  background: #1e293b !important;
+  border-right: 1px solid #334155 !important;
+}
+
+body.dark-mode .sidebar-header {
+  background: #1e293b !important;
+  border-bottom: 1px solid #334155 !important;
+}
+
+body.dark-mode .sidebar-header h1 {
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .sidebar-header p {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .sidebar-logo {
+  background: #4f46e5 !important;
+}
+
+/* Navegación */
+body.dark-mode .sidebar-nav {
+  background: #1e293b !important;
+}
+
+body.dark-mode .nav-item {
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .nav-item:hover {
+  background: #334155 !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .nav-item.active {
+  background: #3730a3 !important;
+  color: white !important;
+}
+
+body.dark-mode .nav-item .badge {
+  background: #10b981 !important;
+  color: white !important;
+}
+
+/* Sección de progreso */
+body.dark-mode .progress-section {
+  background: #1e293b !important;
+  border-top: 1px solid #334155 !important;
+}
+
+body.dark-mode .progress-section h3 {
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .progress-section p {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .progress-bar {
+  background: #334155 !important;
+}
+
+body.dark-mode .progress-fill {
+  background: #4f46e5 !important;
+}
+
+body.dark-mode .cta-button {
+  background: #4f46e5 !important;
+  color: white !important;
+}
+
+body.dark-mode .cta-button:hover {
+  background: #4338ca !important;
+}
+
+/* Contenido principal */
+body.dark-mode .main-content {
+  background: #0f172a !important;
+}
+
+body.dark-mode .page-header {
+  border-bottom: 1px solid #334155 !important;
+}
+
+/* Cards y contenido */
+body.dark-mode .content-card {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+}
+
+body.dark-mode .page-title {
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .page-subtitle {
+  color: #94a3b8 !important;
+}
+
+/* Inputs y formularios */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #64748b !important;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus {
+  border-color: #4f46e5 !important;
+  background: #1e293b !important;
+}
+
+/* Botones */
+body.dark-mode button:not(.reset-button):not(.toggle-slider) {
+  background: #334155 !important;
+  color: #f1f5f9 !important;
+  border-color: #475569 !important;
+}
+
+body.dark-mode button:not(.reset-button):not(.toggle-slider):hover {
+  background: #475569 !important;
+}
+
+/* Estados vacíos */
+body.dark-mode .empty-state {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .empty-state h2 {
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .empty-icon {
+  opacity: 0.7;
+}
+
+/* ===== PÁGINA DE DICCIONARIO ===== */
+body.dark-mode .dictionary-header {
+  background: #1e293b !important;
+  border-bottom: 1px solid #334155 !important;
+}
+
+body.dark-mode .dictionary-stats {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%) !important;
+}
+
+body.dark-mode .stat-item h3,
+body.dark-mode .stat-item p {
+  color: white !important;
+}
+
+body.dark-mode .search-container {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+}
+
+body.dark-mode .search-input {
+  background: #0f172a !important;
+  border: 1px solid #334155 !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .search-input::placeholder {
+  color: #64748b !important;
+}
+
+body.dark-mode .category-button,
+body.dark-mode .difficulty-button {
+  background: #334155 !important;
+  color: #cbd5e1 !important;
+  border: 1px solid #475569 !important;
+}
+
+body.dark-mode .category-button:hover,
+body.dark-mode .difficulty-button:hover {
+  background: #475569 !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .category-button.active,
+body.dark-mode .difficulty-button.active {
+  background: #4f46e5 !important;
+  color: white !important;
+  border-color: #4f46e5 !important;
+}
+
+body.dark-mode .sign-card {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+}
+
+body.dark-mode .sign-card:hover {
+  border-color: #4f46e5 !important;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3) !important;
+}
+
+body.dark-mode .sign-card h3 {
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .sign-card p {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .difficulty-badge {
+  background: #334155 !important;
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .sign-grid {
+  background: #0f172a !important;
+}
+
+/* ===== PÁGINA DE TRADUCTOR ===== */
+body.dark-mode .translator-container {
+  background: #0f172a !important;
+}
+
+body.dark-mode .video-container {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+}
+
+body.dark-mode .video-placeholder {
+  background: #334155 !important;
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .camera-button {
+  background: #334155 !important;
+  color: #f1f5f9 !important;
+  border: 1px solid #475569 !important;
+}
+
+body.dark-mode .camera-button:hover {
+  background: #475569 !important;
+}
+
+body.dark-mode .text-input-container {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+}
+
+body.dark-mode .text-input-container textarea {
+  background: #0f172a !important;
+  color: #f1f5f9 !important;
+  border: 1px solid #334155 !important;
+}
+
+body.dark-mode .text-input-container textarea::placeholder {
+  color: #64748b !important;
+}
+
+body.dark-mode .translate-button {
+  background: #4f46e5 !important;
+  color: white !important;
+}
+
+body.dark-mode .translate-button:hover {
+  background: #4338ca !important;
+}
+
+body.dark-mode .translation-result {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .server-status {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .connect-button {
+  background: #334155 !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .connect-button:hover {
+  background: #475569 !important;
+}
+
+/* ===== PÁGINA DE APRENDER ===== */
+body.dark-mode .lesson-card {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+}
+
+body.dark-mode .lesson-card:hover {
+  border-color: #4f46e5 !important;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3) !important;
+}
+
+body.dark-mode .lesson-card h3 {
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .lesson-card p {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .level-badge {
+  background: #334155 !important;
+  color: #cbd5e1 !important;
+}
+
+/* ===== BADGES Y ETIQUETAS ===== */
+body.dark-mode .badge {
+  background: #10b981 !important;
+  color: white !important;
+}
+
+body.dark-mode .level-badge.beginner {
+  background: #22c55e !important;
+}
+
+body.dark-mode .level-badge.intermediate {
+  background: #f59e0b !important;
+}
+
+body.dark-mode .level-badge.advanced {
+  background: #ef4444 !important;
+}
+
+/* ===== SCROLLBAR EN MODO OSCURO ===== */
+body.dark-mode ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 5px;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* ===== MODAL Y OVERLAYS ===== */
+body.dark-mode .modal,
+body.dark-mode .overlay {
+  background: rgba(15, 23, 42, 0.9) !important;
+}
+
+body.dark-mode .modal-content {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+}
+
+body.dark-mode .modal-header {
+  border-bottom: 1px solid #334155 !important;
+}
+
+body.dark-mode .modal-title {
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .close-button {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .close-button:hover {
+  color: #f1f5f9 !important;
+}

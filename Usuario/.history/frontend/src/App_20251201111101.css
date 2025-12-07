@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f9fafb;
+}
+
+button {
+  font-family: inherit;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+
+/* AGREGAR AL INICIO DE APP.CSS */
+
+/* Reset global para eliminar espacios blancos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.App {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+}
+
+.app-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar {
+  min-height: 100vh;
+}
+
+/* Modo oscuro - Sin espacios blancos */
+html.dark-mode,
+body.dark-mode {
+  background-color: #0f172a !important;
+}
+
+body.dark-mode #root,
+body.dark-mode .App,
+body.dark-mode .app-container,
+body.dark-mode .main-content {
+  background-color: #0f172a !important;
+}

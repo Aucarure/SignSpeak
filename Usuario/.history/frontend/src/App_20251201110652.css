@@ -1,0 +1,191 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f9fafb;
+}
+
+button {
+  font-family: inherit;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+
+/* Agregar estos estilos a tu App.css */
+
+/* Modo oscuro global */
+body.dark-mode {
+  background: #0f172a !important;
+  color: #e5e7eb !important;
+}
+
+body.dark-mode #root {
+  background: #0f172a !important;
+}
+
+body.dark-mode * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* App Container */
+body.dark-mode .app-container {
+  background: #0f172a !important;
+}
+
+/* Sidebar completo */
+body.dark-mode .sidebar {
+  background: #1e293b !important;
+  border-right: 1px solid #334155 !important;
+}
+
+body.dark-mode .sidebar-header {
+  background: #1e293b !important;
+  border-bottom: 1px solid #334155 !important;
+}
+
+body.dark-mode .sidebar-header h1 {
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .sidebar-header p {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .sidebar-logo {
+  background: #4f46e5 !important;
+}
+
+/* Navegación */
+body.dark-mode .sidebar-nav {
+  background: #1e293b !important;
+}
+
+body.dark-mode .nav-item {
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .nav-item:hover {
+  background: #334155 !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .nav-item.active {
+  background: #3730a3 !important;
+  color: white !important;
+}
+
+body.dark-mode .nav-item .badge {
+  background: #10b981 !important;
+  color: white !important;
+}
+
+/* Sección de progreso */
+body.dark-mode .progress-section {
+  background: #1e293b !important;
+  border-top: 1px solid #334155 !important;
+}
+
+body.dark-mode .progress-section h3 {
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .progress-section p {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .progress-bar {
+  background: #334155 !important;
+}
+
+body.dark-mode .progress-fill {
+  background: #4f46e5 !important;
+}
+
+body.dark-mode .cta-button {
+  background: #4f46e5 !important;
+  color: white !important;
+}
+
+body.dark-mode .cta-button:hover {
+  background: #4338ca !important;
+}
+
+/* Contenido principal */
+body.dark-mode .main-content {
+  background: #0f172a !important;
+}
+
+body.dark-mode .page-header {
+  border-bottom: 1px solid #334155 !important;
+}
+
+/* Cards y contenido */
+body.dark-mode .content-card {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+}
+
+body.dark-mode .page-title {
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .page-subtitle {
+  color: #94a3b8 !important;
+}
+
+/* Inputs y formularios */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #64748b !important;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus {
+  border-color: #4f46e5 !important;
+  background: #1e293b !important;
+}
+
+/* Botones */
+body.dark-mode button:not(.reset-button):not(.toggle-slider) {
+  background: #334155 !important;
+  color: #f1f5f9 !important;
+  border-color: #475569 !important;
+}
+
+body.dark-mode button:not(.reset-button):not(.toggle-slider):hover {
+  background: #475569 !important;
+}
+
+/* Estados vacíos */
+body.dark-mode .empty-state {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .empty-state h2 {
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .empty-icon {
+  opacity: 0.7;
+}
+
+
